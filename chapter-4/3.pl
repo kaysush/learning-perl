@@ -2,12 +2,17 @@
 
 use strict;
 
-sub mean {
+sub total {
 	my $sum = 0;
-	foreach (@_) {
+	foreach ( @_ ) {
 		$sum += $_;
 	}
 
+	$sum;
+}
+
+sub mean {
+	my $sum = &total(@_);
 	$sum/@_;
 }
 
