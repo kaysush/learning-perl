@@ -5,14 +5,14 @@ use 5.010;
 
 sub greet {
 	my($name) = @_;
-	state @names;
-	my $len = @names;
-	if ( $len == 0 ) {
-		print "Hi $name ! You are the first one here! \n";
-		push(@names , $name);
+	state $last;
+	print "Hi $name ! ";
+	if ( defined $last ) {
+		print " $last is also here \n";
+		$last = $name;
 	} else {
-		print "Hi $name ! @names is also here \n";
-		push(@names , $name);
+		print "You are the first one here! \n";
+		$last = $name;
 	}
 }
 
