@@ -3,7 +3,7 @@
 use strict;
 
 while(<>) {
-	if(/(.)\1/) {
+	if(/(\S)\1/) { # using class shortcut \S for non-whitespace characters
 		print "$_\n";
 	}
 }
