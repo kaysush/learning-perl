@@ -3,7 +3,7 @@
 use strict;
 
 while(<>) {
-	if(/(.)*wilma(.)*fred(.)*|(.)*fred(.)*wilma(.)*/) {
+	if(/wilma(.)*fred|fred(.)*wilma/) {
 		print "$_\n";
 	}
 }
