@@ -11,7 +11,7 @@ my $message = "## Copyright(C) 2013 Sushil Kumar";
 
 while(<>) {
 
-	if( ! /\A## Copyright/) {  # if copyright header is not found or not present add it.
+	unless(/\A## Copyright/) {  # if copyright header is not found or not present add it.
 	s/(^\A#!(?:.*))/$1\n$message/; # replace the shebang with shebang line followed by copyright.
 			print;
 		}
