@@ -8,6 +8,6 @@ my @values = split " " , $value; #spilt the value at space you can even use /\s/
 @values = sort { $a <=> $b} @values;
 
 foreach (@values) {
-	printf "%10d\n" , $_;
+	printf "%10g\n" , $_;
 }
 
