@@ -11,5 +11,6 @@ while(1) {
  $index = index($string , $substr , $index);
  last if $index < 0;
  print "Found at $index\n";
- $index += $length;
+ #$index += $length;
+ $index += 1; #start searching from next index iteself
 }
