@@ -6,8 +6,8 @@ use 5.010001;
 foreach (@ARGV) {
 	say("Checking : $_");
 	when ( -r $_ ) 	{ print("Readable ");continue }
-	when ( -w $_ ) 	{ print("Writable ");continue }
-	when ( -x $_ ) 	{ print("Executable ");continue }
+	when ( -w _ ) 	{ print("Writable ");continue }
+	when ( -x _ ) 	{ print("Executable ");continue }
 	default 		{say("");}
 
 }
