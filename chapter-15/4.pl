@@ -13,14 +13,12 @@ sub divisors { # subroutine to return the list of divisors. Already given in the
 }
 
 given($ARGV[0]) {
-	when (/^\d+$/) 	{ 
+	when (! /^\d+$/) 	{ die("$ARGV[0] is not a number."); }
 
-						my @divisors = &divisors($_);
-						if(@divisors){
-								print("@divisors\n");
-						} else {
-								say("Prime Number");
-						}
-				 }
-	default 		{die("$ARGV[0] is not a number.");}
+	my @divisors = &divisors($_);
+	my @empty;
+
+	when (@divisors ~~ @empty) {say("$ARGV[0] is prime.")}
+	default {say("@divisors");}
+				
 }
