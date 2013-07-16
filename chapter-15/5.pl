@@ -13,18 +13,16 @@ sub divisors { # subroutine to return the list of divisors. Already given in the
 }
 
 given($ARGV[0]) {
-	when (/^\d+$/) 	{ 
+	when (! /^\d+$/) 	{ die("$ARGV[0] is not a number."); }
 
-						if($_ %(2) == 0) { say("$_ is even") }
-						else { say("$_ is odd"); }
+	my @divisors = &divisors($_);
+	my @empty;
 
-						my @divisors = &divisors($_);
-						if(@divisors){
-								print("@divisors\n");
-						} else {
-								say("Prime Number");
-						}
-						if($_ % $ARGV[1]) { say("$_ is divisible by $ARGV[1]"); }
-				 }
-	default 		{die("$ARGV[0] is not a number.");}
+	
+	when (@divisors ~~ 2) 			{say("$_ is Even number");continue;}
+	when (!(@divisors ~~ 2))		{say("$_ is Odd number");continue;}
+	when (@divisors ~~ $ARGV[1]) 	{say("$_ is divisible by $ARGV[1]");continue;}
+	when (@divisors ~~ @empty) 		{say("$ARGV[0] is prime.");}
+	default 						{say("@divisors");}
+				
 }
